@@ -8,12 +8,12 @@ Created on Wed Oct 20 21:35:24 2021
 
 
 import pandas as pd
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 import plotly_express as px
-import plotly.graph_objs as go
-import plotly.subplots as sp
+# import plotly.graph_objs as go
+# import plotly.subplots as sp
 import streamlit as st
-import plotly.io as pio
+# import plotly.io as pio
 # pio.renderers.default='browser'
 
 st.title("Mall Customers Data Visualization Dashboard")
