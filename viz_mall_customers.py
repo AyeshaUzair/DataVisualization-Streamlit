@@ -8,14 +8,14 @@ Created on Wed Oct 20 21:35:24 2021
 
 
 import pandas as pd
-import pandas_profiling as pp
-from matplotlib import pyplot as plt
+# import pandas_profiling as pp
+# from matplotlib import pyplot as plt
 import plotly_express as px
-import plotly.graph_objs as go
-import plotly.subplots as sp
+# import plotly.graph_objs as go
+# import plotly.subplots as sp
 import streamlit as st
-import plotly.io as pio
-pio.renderers.default='browser'
+# import plotly.io as pio
+# pio.renderers.default='browser'
 # %matplotlib inline
 
 st.title("Data Visualization Dashboard for Mall Customers")
@@ -32,8 +32,8 @@ dpdwn = st.sidebar.selectbox("",[
                                 ])
 
 df = pd.read_csv("Mall_Customers.csv")
-print(df.info())
-print(df.describe())
+# print(df.info())
+# print(df.describe())
 df = df.rename(columns = {'Genre':'Gender'})
 
 mean_1 = df['Annual Income (k$)'].mean()
@@ -59,22 +59,20 @@ mean_score_income = df["Score per $ income"].mean()
 
 # PLOTS
 
-figure1 = px.histogram(df, x="Gender") # final
+figure1 = px.histogram(df, x="Gender") 
 
-figure8 = px.histogram(df, x="Age Group") # final
+figure8 = px.histogram(df, x="Age Group") 
 
-figure5 = px.histogram(df,x="Age Group", color="Gender") # final
+figure5 = px.histogram(df,x="Age Group", color="Gender") 
 
-figure3 = px.histogram(df,x="Age Group", y= "Annual Income (k$)") # final
-figure6 = px.pie(df, values="Annual Income (k$)", names= "Age Group") # final
+figure3 = px.histogram(df,x="Age Group", y= "Annual Income (k$)") 
+figure6 = px.pie(df, values="Annual Income (k$)", names= "Age Group") 
 
 figure2 = px.scatter(df,x="Annual Income (k$)", y="Spending Score (1-100)" , color="Gender")
 figure10 = px.histogram(df,x="Annual Income (k$)", y="Spending Score (1-100)" , color="Age Group")
 
-figure4 = px.scatter(df,x="Age Group", y= "Spending Score (1-100)") # final
-figure9 = px.pie(df, values="Spending Score (1-100)", names= "Age Group") # final
-
-#figure7 = px.funnel(df,x="Age Group",y="Gender")
+figure4 = px.scatter(df,x="Age Group", y= "Spending Score (1-100)") 
+figure9 = px.pie(df, values="Spending Score (1-100)", names= "Age Group") 
 
 qty = df.groupby(["Age Group"])["Annual Income (k$)"].sum().reset_index().sort_values(by = "Annual Income (k$)")
 figure7 = px.funnel(qty,x="Age Group",y="Annual Income (k$)")
