@@ -6,13 +6,12 @@ Created on Wed Oct 20 21:35:24 2021
 @author: ayeshauzair
 """
 
-
+import streamlit as st
 import pandas as pd
 # from matplotlib import pyplot as plt
 import plotly_express as px
 # import plotly.graph_objs as go
 # import plotly.subplots as sp
-import streamlit as st
 # import plotly.io as pio
 # pio.renderers.default='browser'
 
