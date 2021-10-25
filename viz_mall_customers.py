@@ -11,6 +11,7 @@ import pandas as pd
 # import pandas_profiling as pp
 # from matplotlib import pyplot as plt
 import plotly_express as px
+import seaborn as sns
 # import plotly.graph_objs as go
 # import plotly.subplots as sp
 import streamlit as st
@@ -68,6 +69,7 @@ figure5 = px.histogram(df,x="Age Group", color="Gender")
 figure3 = px.histogram(df,x="Age Group", y= "Annual Income (k$)") 
 figure6 = px.pie(df, values="Annual Income (k$)", names= "Age Group") 
 
+figure22 = sns.jointplot(data = df, kind="scatter",x="Annual Income (k$)", y = "Spending Score (1-100)",hue="Age Group")
 figure2 = px.scatter(df,x="Annual Income (k$)", y="Spending Score (1-100)" , color="Gender")
 figure10 = px.histogram(df,x="Annual Income (k$)", y="Spending Score (1-100)" , color="Age Group")
 
@@ -97,10 +99,12 @@ if dpdwn == "Age Group vs Gender Count":
     st.write("For each Age Group, there are more number of Females than Males.")
 
 if dpdwn =="Annual Income vs Spending Score":
+    st.subheader("Scatter Plot: Annual Income vs Spending Score (Age Group wise)")
+    st.pyplot(figure22)
     st.subheader("Scatter Plot: Annual Income vs Spending Score (Gender wise)")
     st.plotly_chart(figure2)
-    st.subheader("Histogram: Annual Income vs Spending Score (Age Group wise)")
-    st.plotly_chart(figure10)
+    # st.subheader("Histogram: Annual Income vs Spending Score (Age Group wise)")
+    # st.plotly_chart(figure10)
     
 if dpdwn == "Age Group vs Annual Income (k$)":
     st.subheader("Pie Chart: Age Group vs Sum of Annual Income (k$)")
