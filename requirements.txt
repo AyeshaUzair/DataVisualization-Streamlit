@@ -1,3 +1,4 @@
 
 plotly==4.14.1
 plotly-express==0.4.1
+seaborn @ file:///tmp/build/80754af9/seaborn_1600553570093/work
